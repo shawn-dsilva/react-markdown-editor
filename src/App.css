@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.writeDiv {
+  background-color: white;
+  width: 50%;
+  height: 100vh;
+  padding:15px;
+  border-right: 2px solid grey;
+}
+
+.displayDiv {
+  background-color: rgb(245, 245, 245);
+  width: 50%;
+  height: 100vh;
+}
