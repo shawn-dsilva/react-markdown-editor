@@ -1,24 +1,38 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { store } from '../store';
-import ContentEditable from 'react-contenteditable'
 
+const ContentEditableWithRef = (props) => {
+    const defaultValue = useRef(props.value);
+  
+    const handleInput = (event) => {
+
+      if (props.onChange) {
+        props.onChange(event.target.innerHTML);
+        const text = event.target.innerHTML
+        console.log(text);
+        props.dispatch({type:"text", data: text});
+      }
+    };
+
+  
+    return (
+      <span
+      className="writeDiv"
+        contentEditable
+        onInput={handleInput}
+        dangerouslySetInnerHTML={{ __html: defaultValue.current }}
+      />
+    );
+  };
+  
 function WriteDiv() {
     const globalState = useContext(store);
     const { dispatch } = globalState;
+    const [nameFromRef, setNameFromRef] = useState("");
 
-    const text = useRef('');
-
-    const handleChange = evt => {
-        text.current = evt.target.value;
-        dispatch({type: "text", data: text.current});
-    };
-
-    const handleBlur = () => {
-        console.log(text.current);
-    };
 
     return (
-<ContentEditable className="writeDiv" html={text.current} onBlur={handleBlur} onChange={handleChange} />
+        <ContentEditableWithRef  value={nameFromRef} onChange={setNameFromRef} dispatch={dispatch} />
 
     )
 }
