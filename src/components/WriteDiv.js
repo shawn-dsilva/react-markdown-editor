@@ -1,5 +1,6 @@
 import React, { useContext, useRef, useState } from 'react';
 import { store } from '../store';
+import sanitizeHtml from 'sanitize-html';
 
 const ContentEditableWithRef = (props) => {
     const defaultValue = useRef(props.value);
@@ -10,7 +11,9 @@ const ContentEditableWithRef = (props) => {
         props.onChange(event.target.innerHTML);
         const text = event.target.innerHTML
         console.log(text);
-        props.dispatch({type:"text", data: text});
+
+        let noHTMLData = text.replace(/(<([^>]+)>)/gi, "  \n");
+        props.dispatch({type:"text", data: noHTMLData});
       }
     };
 
