@@ -19,12 +19,17 @@ const ContentEditableWithRef = (props) => {
 
   
     return (
-      <span
-      className="writeDiv"
-        contentEditable
-        onInput={handleInput}
-        dangerouslySetInnerHTML={{ __html: defaultValue.current }}
-      />
+      <div className="writeDivContainer">
+ <div className="writeBanner">EDIT</div>
+
+<span
+   className="writeDiv"
+  contentEditable
+  onInput={handleInput}
+  dangerouslySetInnerHTML={{ __html: defaultValue.current }}
+/>
+      </div>
+     
     );
   };
   
