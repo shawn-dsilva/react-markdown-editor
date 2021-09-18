@@ -17,10 +17,26 @@ const ContentEditableWithRef = (props) => {
       }
     };
 
+
+
+    const makeBold = () => {
+      const selection = window.getSelection();
+      let {anchorNode, anchorOffset, focusNode, focusOffset} = selection;
+      console.log(selection.toString());
+      console.log(`Sel Start ${anchorNode.data}, offset ${anchorOffset}`);
+      console.log(`Sel End ${focusNode.data}, offset ${focusOffset}`);
+      const bolded =  "**"+selection+"**";    
+      let para = anchorNode.data.substring(0,anchorOffset) + bolded + anchorNode.data.substring(focusOffset);
+      console.log(para);
+
+    }
+
   
     return (
       <div className="writeDivContainer">
- <div className="writeBanner">EDIT</div>
+ <div className="writeBanner">EDIT
+ <button onClick={makeBold}>B</button>
+ </div>
 
 <span
    className="writeDiv"
