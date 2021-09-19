@@ -58,8 +58,10 @@
 
 .writeDiv {
   height: 100vh;
-  width: 100%;
-  padding: 15px;
+  width: auto;
+  padding: 25px;
+  font-family: 'Inter'!important;
+  font-size: 18px;
 }
 
 .writeBanner {

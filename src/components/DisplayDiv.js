@@ -20,7 +20,7 @@ function DisplayDiv() {
 
     return (
         <div className="displayDiv" >
-           <ReactMarkdown components={custom} rehypePlugins={[rehypeRaw]} children={globalState.state} /> 
+           <ReactMarkdown components={custom} children={globalState.state} /> 
         </div>
     )
 }
