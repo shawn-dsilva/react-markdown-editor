@@ -62,6 +62,7 @@
   padding: 25px;
   font-family: 'Inter'!important;
   font-size: 18px;
+  resize:none;
 }
 
 .writeBanner {
