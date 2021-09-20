@@ -66,10 +66,32 @@
 }
 
 .writeBanner {
-  background-color: #282c34;
+  background-color: rgba(0,0,0,.75);
   font-weight: 600;
   font-size: 2rem;
   color: white;
+  display: flex;
+  padding:0.3rem;
+}
+
+.writeBanner button {
+  background-color: transparent;
+  color:#b9b9b9;
+  font-weight: bold;
+  font-size: 1.2rem;
+  height: 100%;
+  width: 3rem;
+  padding: 4px 13px;
+  margin:0 4px;
+  border:2px #282c34 solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.writeBanner button:hover {
+  background-color: #57585a;
+  color:white;
+
 }
 
 .displayDiv {

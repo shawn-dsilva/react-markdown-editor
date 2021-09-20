@@ -18,25 +18,39 @@ function WriteDiv() {
     }
 
 
-    const clickHandler = () => {
+    const clickHandler = (operator) => {
       textArea = textArea.current;
       if (textArea.selectionStart === textArea.selectionEnd) {
         return; // nothing is selected
       }
     
       let selected = textArea.value.slice(textArea.selectionStart, textArea.selectionEnd);
-      textArea.setRangeText(`**${selected}**`);
+      
+      let wrapAround = ""
+      if(operator === "b") {
+        wrapAround = "**";
+      } else if (operator === "i") {
+        wrapAround = "*";
+      }
+
+
+      textArea.setRangeText(` ${wrapAround}${selected}${wrapAround} `);
       console.log(`${textArea.value}`);
       setNameFromRef(textArea.value);
       dispatch({type:"text", data: textArea.value});
-
-
     }
 
     return (
       <div className="writeDivContainer">
       <div className="writeBanner">EDIT
-      <button onClick={clickHandler}>B</button>
+      <button onClick={ () => clickHandler("b")}><i class="fas fa-bold"></i></button>
+      <button onClick={ () => clickHandler("i")}><i class="fas fa-italic"></i></button>
+      <button ><i class="fas fa-list-ul"></i></button>
+      <button ><i class="fas fa-list-ol"></i></button>
+      <button ><i class="fas fa-quote-left"></i></button>
+      <button ><i class="fas fa-list-ol"></i></button>
+      <button ><i class="fas fa-list-ol"></i></button>
+
       </div>
         <textarea ref={textArea} className="writeDiv" value={nameFromRef}  onChange={onChange}   />
       </div>
