@@ -8,6 +8,7 @@ function WriteDiv() {
     const [nameFromRef, setNameFromRef] = useState(``);
     let textArea = useRef(null);
     const [modalToggle, setModalToggle] = useState(false);
+    const [modalInputName, setModalInputName] = useState("");
 
     const onChange = (event) => {
       let text = event.target.value
@@ -16,6 +17,18 @@ function WriteDiv() {
       console.log(text);
       dispatch({type:"text", data: text});
 
+    }
+
+    const handleInputChange = (event) => {
+      setModalInputName(event.target.value);
+    }
+
+    const handleURLSubmit = (event) => {
+      textArea = textArea.current;
+      const imageURL = `![](${modalInputName})`
+      textArea.setRangeText(` ${imageURL} `);
+      setNameFromRef(textArea.value);
+      dispatch({type:"text", data: textArea.value});
     }
 
     const modalToggler = () => {
@@ -53,12 +66,18 @@ function WriteDiv() {
       <button ><i class="fas fa-list-ol"></i></button>
       <button ><i class="fas fa-quote-left"></i></button>
       <button ><i class="fas fa-link"></i></button>
-      <button onClick={e => modalToggler(e)} ><i class="far fa-image"></i></button>
-<Modal show={modalToggle} onClose={e => modalToggler(e)}>
-  <h1>Insert Image From URL</h1>
-<input></input>
-<button className="modal-submit">submit</button>
-</Modal>
+      <button onClick={e => modalToggler(e)} ><i class="far fa-image"></i></button> 
+      <Modal show={modalToggle} onClose={e => modalToggler(e)}>
+        <h1>Insert Image From URL</h1>
+        <input
+         type="text"
+         value={modalInputName}
+         name="modalInputName"
+         onChange={e => handleInputChange(e)}
+         >
+        </input>
+        <button className="modal-submit" onClick={e => handleURLSubmit(e)}>submit</button>
+      </Modal>
       </div>
         <textarea ref={textArea} className="writeDiv" value={nameFromRef}  onChange={onChange}   />
       </div>
