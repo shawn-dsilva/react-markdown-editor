@@ -1,12 +1,13 @@
 import React, { useContext, useRef, useState } from 'react';
 import { store } from '../store';
+import Modal from './Modal';
 
 function WriteDiv() {
     const globalState = useContext(store);
     const { dispatch } = globalState;
     const [nameFromRef, setNameFromRef] = useState(``);
     let textArea = useRef(null);
-
+    const [modalToggle, setModalToggle] = useState(false);
 
     const onChange = (event) => {
       let text = event.target.value
@@ -17,6 +18,9 @@ function WriteDiv() {
 
     }
 
+    const modalToggler = () => {
+      setModalToggle(!modalToggle);
+    }
 
     const clickHandler = (operator) => {
       textArea = textArea.current;
@@ -48,9 +52,13 @@ function WriteDiv() {
       <button ><i class="fas fa-list-ul"></i></button>
       <button ><i class="fas fa-list-ol"></i></button>
       <button ><i class="fas fa-quote-left"></i></button>
-      <button ><i class="fas fa-list-ol"></i></button>
-      <button ><i class="fas fa-list-ol"></i></button>
-
+      <button ><i class="fas fa-link"></i></button>
+      <button onClick={e => modalToggler(e)} ><i class="far fa-image"></i></button>
+<Modal show={modalToggle} onClose={e => modalToggler(e)}>
+  <h1>Insert Image From URL</h1>
+<input></input>
+<button className="modal-submit">submit</button>
+</Modal>
       </div>
         <textarea ref={textArea} className="writeDiv" value={nameFromRef}  onChange={onChange}   />
       </div>

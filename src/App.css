@@ -63,6 +63,13 @@
   font-family: 'Inter'!important;
   font-size: 18px;
   resize:none;
+  border: none;
+  overflow: auto;
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 .writeBanner {
@@ -99,4 +106,66 @@
   width: 50%;
   height: 100vh;
   padding: 0 1.5rem;
+}
+
+.modal-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal {
+  width: 30%;
+  height: 50%;
+  margin:auto;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color:#282c34;
+  margin: 1.5rem auto;
+}
+
+.modal input {
+  padding:1rem;
+  font-size: 1.5rem;
+  margin:0 3rem;
+}
+
+.modal-submit {
+  height: fit-content!important;
+  width: auto!important;
+  border: none!important;
+  font-size: 2rem!important;
+  margin:2rem auto!important;
+  background-color: #61dafb!important;
+  color:white!important;
+  padding:1rem 5rem!important;
+}
+
+.modal-close i {
+  color:rgb(212, 58, 58);
+}
+
+.modal-close {
+  height: fit-content!important;
+  border: none!important;
+  font-size: 2rem!important;
+  margin:1rem!important;
+  margin-left: auto!important;
+}
+
+.modal-close:hover {
+  background-color: whitesmoke!important;
 }
