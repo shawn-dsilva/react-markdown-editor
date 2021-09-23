@@ -169,3 +169,8 @@
 .modal-close:hover {
   background-color: whitesmoke!important;
 }
+
+.md-logo {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
