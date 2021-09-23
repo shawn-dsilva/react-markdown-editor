@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from 'react';
 import { store } from '../store';
-import Modal from './Modal';
 import InsertImageModal from './InsertImageModal';
+import InsertLinkModal from './InsertLinkModal';
 
 function WriteDiv() {
     const globalState = useContext(store);
@@ -49,7 +49,7 @@ function WriteDiv() {
       <button ><i class="fas fa-list-ul"></i></button>
       <button ><i class="fas fa-list-ol"></i></button>
       <button ><i class="fas fa-quote-left"></i></button>
-      <button ><i class="fas fa-link"></i></button>
+      <InsertLinkModal dispatch={dispatch} textArea={textArea} setNameFromRef={setNameFromRef}/>
       <InsertImageModal dispatch={dispatch} textArea={textArea} setNameFromRef={setNameFromRef}/>
       </div>
         <textarea ref={textArea} className="writeDiv" value={nameFromRef}  onChange={onChange}   />

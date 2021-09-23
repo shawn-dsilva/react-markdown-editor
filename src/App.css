@@ -121,7 +121,7 @@
 
 .modal {
   width: 30%;
-  height: 50%;
+  height: auto;
   margin:auto;
   background-color: white;
   border: 1px solid white;
@@ -173,4 +173,13 @@
 .md-logo {
   margin-right: 1rem;
   margin-left: 1rem;
+}
+
+label {
+  color:#282c34;
+  /* margin-left: 3rem; */
+  text-align: center;
+  padding:1rem 0;
+  font-size: 1.5rem;
+  font-weight: 400;
 }
