@@ -11,13 +11,10 @@ function InsertLinkModal(props) {
         setModalToggle(!modalToggle);
     }
 
-    const handleInputChange = (event) => {
-        setModalLinkName(event.target.value);
-
-    }
 
     const handleURLSubmit = (event) => {
-        const imageURL = `[${modalLinkText}](${modalLinkName})`;
+
+        const imageURL = modalLinkText ? `[${modalLinkText}](${modalLinkName})` :  `[${modalLinkName}](${modalLinkName})` ;
         console.log(imageURL);
         props.setNameFromRef(props.textArea.current.value);
         props.textArea.current.setRangeText(` ${imageURL} `);
@@ -29,7 +26,7 @@ function InsertLinkModal(props) {
             <button onClick={e => modalToggler(e)} ><i class="fas fa-link"></i></button> 
       <Modal show={modalToggle} onClose={e => modalToggler(e)}>
         <h1>Insert Image From URL</h1>
-        <label>Link Text</label>
+        <label>Link Text (Optional) </label>
         <input
          type="text"
          value={modalLinkText}
