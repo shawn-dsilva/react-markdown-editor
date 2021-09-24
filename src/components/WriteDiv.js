@@ -2,6 +2,7 @@ import React, { useContext, useRef, useState } from 'react';
 import { store } from '../store';
 import InsertImageModal from './InsertImageModal';
 import InsertLinkModal from './InsertLinkModal';
+import MakeList from './MakeList';
 
 function WriteDiv() {
     const globalState = useContext(store);
@@ -46,8 +47,8 @@ function WriteDiv() {
       <i className="fab fa-markdown md-logo"></i>
       <button onClick={ () => clickHandler("b")}><i class="fas fa-bold"></i></button>
       <button onClick={ () => clickHandler("i")}><i class="fas fa-italic"></i></button>
-      <button ><i class="fas fa-list-ul"></i></button>
-      <button ><i class="fas fa-list-ol"></i></button>
+      <MakeList dispatch={dispatch} setNameFromRef={setNameFromRef} textArea={textArea} type={"ul"} icon={<i class="fas fa-list-ul"></i>}/>
+      <MakeList dispatch={dispatch} setNameFromRef={setNameFromRef} textArea={textArea} type={"ol"} icon={<i class="fas fa-list-ol"></i>}/>
       <button ><i class="fas fa-quote-left"></i></button>
       <InsertLinkModal dispatch={dispatch} textArea={textArea} setNameFromRef={setNameFromRef}/>
       <InsertImageModal dispatch={dispatch} textArea={textArea} setNameFromRef={setNameFromRef}/>
