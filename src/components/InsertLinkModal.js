@@ -22,7 +22,7 @@ function InsertLinkModal(props) {
     }
 
     return (
-        <div>
+        <div className="div-container">
             <button onClick={e => modalToggler(e)} ><i class="fas fa-link"></i></button> 
       <Modal show={modalToggle} onClose={e => modalToggler(e)}>
         <h1>Insert Image From URL</h1>

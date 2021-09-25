@@ -3,6 +3,7 @@ import { store } from '../store';
 import InsertImageModal from './InsertImageModal';
 import InsertLinkModal from './InsertLinkModal';
 import MakeList from './MakeList';
+import TextTransform from './TextTransform';
 
 function WriteDiv() {
     const globalState = useContext(store);
@@ -45,11 +46,13 @@ function WriteDiv() {
       <div className="writeDivContainer">
       <div className="writeBanner">
       <i className="fab fa-markdown md-logo"></i>
-      <button onClick={ () => clickHandler("b")}><i class="fas fa-bold"></i></button>
-      <button onClick={ () => clickHandler("i")}><i class="fas fa-italic"></i></button>
+      <TextTransform dispatch={dispatch} setNameFromRef={setNameFromRef} textArea={textArea} operator={"b"}
+       icon={<i class="fas fa-bold"></i>}/>
+      <TextTransform dispatch={dispatch} setNameFromRef={setNameFromRef} textArea={textArea} operator={"i"} 
+      icon={<i class="fas fa-italic"></i>}/>
       <MakeList dispatch={dispatch} setNameFromRef={setNameFromRef} textArea={textArea} type={"ul"} icon={<i class="fas fa-list-ul"></i>}/>
       <MakeList dispatch={dispatch} setNameFromRef={setNameFromRef} textArea={textArea} type={"ol"} icon={<i class="fas fa-list-ol"></i>}/>
-      <button ><i class="fas fa-quote-left"></i></button>
+      <MakeList dispatch={dispatch} setNameFromRef={setNameFromRef} textArea={textArea} type={"qt"} icon={<i class="fas fa-quote-left"></i>}/>
       <InsertLinkModal dispatch={dispatch} textArea={textArea} setNameFromRef={setNameFromRef}/>
       <InsertImageModal dispatch={dispatch} textArea={textArea} setNameFromRef={setNameFromRef}/>
       </div>

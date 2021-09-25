@@ -22,7 +22,7 @@ function InsertImageModal(props) {
     }
 
     return (
-        <div>
+        <div className="div-container">
             <button onClick={e => modalToggler(e)} ><i class="far fa-image"></i></button> 
       <Modal show={modalToggle} onClose={e => modalToggler(e)}>
         <h1>Insert Image From URL</h1>

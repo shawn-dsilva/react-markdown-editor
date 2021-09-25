@@ -17,8 +17,12 @@ function MakeList(props) {
         } else if (props.type === "ul") {
             for(let i = 0; i < selected.length; i++) {
                 selected[i] = `- ${selected[i]}\n`;
-            }
-        }
+            } 
+        }  else if (props.type === "qt") {
+            for(let i = 0; i < selected.length; i++) {
+                selected[i] = `> ${selected[i]}\n`;
+            } 
+        } 
   
   
         textArea.setRangeText(` ${selected.join("")} `);
@@ -28,9 +32,7 @@ function MakeList(props) {
       }
   
     return (
-        <div>
             <button onClick={ () => clickHandler()}>{props.icon}</button>
-        </div>
     )
 }
 
