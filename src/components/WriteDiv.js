@@ -46,6 +46,7 @@ function WriteDiv() {
       <div className="writeDivContainer">
       <div className="writeBanner">
       <i className="fab fa-markdown md-logo"></i>
+      <span className="md-text">Editor</span>
       <TextTransform dispatch={dispatch} setNameFromRef={setNameFromRef} textArea={textArea} operator={"b"}
        icon={<i class="fas fa-bold"></i>}/>
       <TextTransform dispatch={dispatch} setNameFromRef={setNameFromRef} textArea={textArea} operator={"i"} 

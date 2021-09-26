@@ -19,8 +19,9 @@ function DisplayDiv() {
     // const test = ` some text   \n some more text   \n more text after newline`;
 
     return (
-        <div className="displayDiv" >
-           <ReactMarkdown components={custom} children={globalState.state} /> 
+        <div className="displayDivContainer" >
+            <div className="displayBanner"><span>Markdown Rendered Preview</span></div>
+           <ReactMarkdown className="displayDiv" components={custom} children={globalState.state} /> 
         </div>
     )
 }
