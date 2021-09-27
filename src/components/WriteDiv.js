@@ -54,6 +54,8 @@ function WriteDiv() {
       <MakeList dispatch={dispatch} setNameFromRef={setNameFromRef} textArea={textArea} type={"ul"} icon={<i class="fas fa-list-ul"></i>}/>
       <MakeList dispatch={dispatch} setNameFromRef={setNameFromRef} textArea={textArea} type={"ol"} icon={<i class="fas fa-list-ol"></i>}/>
       <MakeList dispatch={dispatch} setNameFromRef={setNameFromRef} textArea={textArea} type={"qt"} icon={<i class="fas fa-quote-left"></i>}/>
+      <TextTransform dispatch={dispatch} setNameFromRef={setNameFromRef} textArea={textArea} operator={"c"} 
+      icon={<i class="fas fa-code"></i>}/>
       <InsertLinkModal dispatch={dispatch} textArea={textArea} setNameFromRef={setNameFromRef}/>
       <InsertImageModal dispatch={dispatch} textArea={textArea} setNameFromRef={setNameFromRef}/>
       </div>

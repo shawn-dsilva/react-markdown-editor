@@ -15,6 +15,8 @@ function TextTransform(props) {
           wrapAround = "**";
         } else if (props.operator === "i") {
           wrapAround = "*";
+        } else if (props.operator === "c") {
+          wrapAround = "\n```\n";
         }
   
   

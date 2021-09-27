@@ -20,7 +20,7 @@ function DisplayDiv() {
 
     return (
         <div className="displayDivContainer" >
-            <div className="displayBanner"><span>Markdown Rendered Preview</span></div>
+            <div className="displayBanner"><span> Markdown Rendered Preview</span></div>
            <ReactMarkdown className="displayDiv" components={custom} children={globalState.state} /> 
         </div>
     )
