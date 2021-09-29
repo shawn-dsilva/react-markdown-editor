@@ -61,6 +61,8 @@ function WriteDiv() {
       <InsertImageModal dispatch={dispatch} textArea={textArea} setNameFromRef={setNameFromRef}/>
       <SaveFile icon={<i class="fas fa-save"></i>} value={nameFromRef}/>
       </div>
+      <div className="save-indicator-container"><span className="save-indicator">Saving...</span></div>
+
         <textarea ref={textArea} className="writeDiv" value={nameFromRef}  onChange={onChange}   />
       </div>
     )
