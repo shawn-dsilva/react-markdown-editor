@@ -1,6 +1,6 @@
 import React, {createContext, useReducer} from 'react';
 
-const initialState = {};
+const initialState =  localStorage.getItem('document').toString();
 const store = createContext(initialState);
 const { Provider } = store;
 

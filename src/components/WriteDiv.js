@@ -1,14 +1,15 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useRef, useState, useEffect } from 'react';
 import { store } from '../store';
 import InsertImageModal from './InsertImageModal';
 import InsertLinkModal from './InsertLinkModal';
 import MakeList from './MakeList';
 import TextTransform from './TextTransform';
+import SaveFile from './SaveFile';
 
 function WriteDiv() {
     const globalState = useContext(store);
     const { dispatch } = globalState;
-    const [nameFromRef, setNameFromRef] = useState(``);
+    const [nameFromRef, setNameFromRef] = useState(localStorage.getItem('document').toString());
     let textArea = useRef(null);
 
     const onChange = (event) => {
@@ -58,6 +59,7 @@ function WriteDiv() {
       icon={<i class="fas fa-code"></i>}/>
       <InsertLinkModal dispatch={dispatch} textArea={textArea} setNameFromRef={setNameFromRef}/>
       <InsertImageModal dispatch={dispatch} textArea={textArea} setNameFromRef={setNameFromRef}/>
+      <SaveFile icon={<i class="fas fa-save"></i>} value={nameFromRef}/>
       </div>
         <textarea ref={textArea} className="writeDiv" value={nameFromRef}  onChange={onChange}   />
       </div>
