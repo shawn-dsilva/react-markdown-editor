@@ -10,13 +10,13 @@ function WriteDiv() {
     const globalState = useContext(store);
     const { dispatch } = globalState;
     const [nameFromRef, setNameFromRef] = useState(localStorage.getItem('document').toString());
+    const [isSaving, setIsSaving] = useState(false);
     let textArea = useRef(null);
 
     const onChange = (event) => {
       let text = event.target.value
       setNameFromRef(text);
       text = text.replace(/\n/g, `  \n`);
-      console.log(text);
       dispatch({type:"text", data: text});
 
     }
@@ -38,7 +38,6 @@ function WriteDiv() {
 
 
       textArea.setRangeText(` ${wrapAround}${selected}${wrapAround} `);
-      console.log(`${textArea.value}`);
       setNameFromRef(textArea.value);
       dispatch({type:"text", data: textArea.value});
     }
@@ -59,9 +58,9 @@ function WriteDiv() {
       icon={<i class="fas fa-code"></i>}/>
       <InsertLinkModal dispatch={dispatch} textArea={textArea} setNameFromRef={setNameFromRef}/>
       <InsertImageModal dispatch={dispatch} textArea={textArea} setNameFromRef={setNameFromRef}/>
-      <SaveFile icon={<i class="fas fa-save"></i>} value={nameFromRef}/>
+      <SaveFile icon={<i class="fas fa-save"></i>} value={nameFromRef} dispatch={dispatch} setIsSaving={setIsSaving}/>
       </div>
-      <div className="save-indicator-container"><span className="save-indicator">Saving...</span></div>
+      { isSaving ? <div className="save-indicator-container"><span className="save-indicator">Saving...</span></div>: null}
 
         <textarea ref={textArea} className="writeDiv" value={nameFromRef}  onChange={onChange}   />
       </div>
