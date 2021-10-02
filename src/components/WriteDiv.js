@@ -5,6 +5,7 @@ import InsertLinkModal from './InsertLinkModal';
 import MakeList from './MakeList';
 import TextTransform from './TextTransform';
 import SaveFile from './SaveFile';
+import DownloadFile from './DownloadFile';
 
 function WriteDiv() {
     const globalState = useContext(store);
@@ -59,6 +60,7 @@ function WriteDiv() {
       <InsertLinkModal dispatch={dispatch} textArea={textArea} setNameFromRef={setNameFromRef}/>
       <InsertImageModal dispatch={dispatch} textArea={textArea} setNameFromRef={setNameFromRef}/>
       <SaveFile icon={<i class="fas fa-save"></i>} value={nameFromRef} dispatch={dispatch} setIsSaving={setIsSaving}/>
+      <DownloadFile value={nameFromRef} />
       </div>
       { isSaving ? <div className="save-indicator-container"><span className="save-indicator">Saving...</span></div>: null}
 
