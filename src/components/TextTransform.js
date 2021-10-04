@@ -1,6 +1,19 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
+import Tooltip from './Tooltip';
 
 function TextTransform(props) {
+
+  const [tooltipText, setTooltipText] = useState("");
+
+  useEffect(() => { 
+    if(props.operator === "b") {
+      setTooltipText("bold");
+    } else if (props.operator === "i") {
+      setTooltipText("italic");
+    } else if (props.operator === "c") {
+      setTooltipText("code");
+    }
+    }, [])
 
     const clickHandler = () => {
         let textArea = props.textArea.current;
@@ -27,7 +40,9 @@ function TextTransform(props) {
       }
   
     return (
+      <Tooltip text={tooltipText}>
         <button onClick={ () => clickHandler()}>{props.icon}</button>
+        </Tooltip>
     )
 }
 
