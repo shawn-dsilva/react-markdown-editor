@@ -1,11 +1,13 @@
 import React, {useContext,useRef, useState, useEffect} from 'react'
 import { store } from '../store';
-
+import Modal from './Modal';
 
 function DownloadFile(props) {
     
     let dofileDownload = useRef(null);
     const [fileDownloadUrl, setFileDownloadUrl] = useState(null);
+    const [modalToggle, setModalToggle] = useState(false);
+    const [fileName, setFileName] = useState("README");
 
     useEffect(() => { 
         dofileDownload.current.dispatchEvent(
@@ -21,8 +23,17 @@ function DownloadFile(props) {
          setFileDownloadUrl(null);
      }, [fileDownloadUrl])
 
+     const modalToggler = (e) => {
+         e.preventDefault();
+        setModalToggle(!modalToggle);
+    }
 
-    function clickHandler() {
+    const handleInputChange = (event) => {
+        setFileName(event.target.value);
+    }
+
+
+    function submitHandler() {
         localStorage.setItem('document', props.value);
         let file = localStorage.getItem("document");
         const blob = new Blob([file]);  
@@ -42,14 +53,25 @@ function DownloadFile(props) {
 
     return (
         <div className="div-container">
-     <button onClick={clickHandler}>
+     <button onClick={e => modalToggler(e)}>
              <i class="fas fa-file-download"></i>
+    </button>
     <a style={{"display":"none"}}
-         download="readme.md"
+         download={fileName+".md"}
          href={fileDownloadUrl}
          ref={dofileDownload}>
         </a>
-    </button>
+    <Modal show={modalToggle} onClose={e => modalToggler(e)}>
+        <h1>Enter File Name: </h1>
+        <input
+         type="text"
+         value={fileName}
+         name="fileName"
+         onChange={e => handleInputChange(e)}
+         >
+        </input>
+        <button className="modal-submit" onClick={e => submitHandler(e)}>submit</button>
+      </Modal>
         </div>
     )
 }
