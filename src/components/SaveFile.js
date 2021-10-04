@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import { store } from '../store';
+import Tooltip from './Tooltip';
 
 
 function SaveFile(props) {
@@ -20,7 +21,9 @@ function SaveFile(props) {
 
     return (
         <div className="div-container">
+            <Tooltip text="Save File">
      <button onClick={ () => clickHandler()}>{props.icon}</button>
+     </Tooltip>
         </div>
     )
 }

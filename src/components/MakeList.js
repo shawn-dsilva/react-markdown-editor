@@ -1,6 +1,19 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
+import Tooltip from './Tooltip';
 
 function MakeList(props) {
+
+    const [tooltipText, setTooltipText] = useState("");
+
+    useEffect(() => { 
+      if(props.type === "ol") {
+        setTooltipText("ordered list");
+      } else if (props.type === "ul") {
+        setTooltipText("unordered list");
+      } else if (props.type === "qt") {
+        setTooltipText("quote");
+      }
+      }, [])
 
     const clickHandler = () => {
         let textArea = props.textArea.current;
@@ -32,7 +45,9 @@ function MakeList(props) {
       }
   
     return (
+        <Tooltip text={tooltipText}>
             <button onClick={ () => clickHandler()}>{props.icon}</button>
+        </Tooltip>
     )
 }
 

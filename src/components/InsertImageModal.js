@@ -1,5 +1,6 @@
 import React, { useContext, useRef, useState } from 'react';
 import Modal from './Modal';
+import Tooltip from './Tooltip';
 
 function InsertImageModal(props) {
 
@@ -23,7 +24,9 @@ function InsertImageModal(props) {
 
     return (
         <div className="div-container">
+            <Tooltip text="Insert Image">
             <button onClick={e => modalToggler(e)} ><i class="far fa-image"></i></button> 
+            </Tooltip>
       <Modal show={modalToggle} onClose={e => modalToggler(e)}>
         <h1>Insert Image From URL</h1>
         <input

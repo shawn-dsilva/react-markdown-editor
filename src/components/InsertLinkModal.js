@@ -1,5 +1,6 @@
 import React, { useContext, useRef, useState } from 'react';
 import Modal from './Modal';
+import Tooltip from './Tooltip';
 
 function InsertLinkModal(props) {
 
@@ -23,7 +24,9 @@ function InsertLinkModal(props) {
 
     return (
         <div className="div-container">
+            <Tooltip text="Insert Link">
             <button onClick={e => modalToggler(e)} ><i class="fas fa-link"></i></button> 
+            </Tooltip>
       <Modal show={modalToggle} onClose={e => modalToggler(e)}>
         <h1>Insert Image From URL</h1>
         <label>Link Text (Optional) </label>

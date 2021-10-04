@@ -1,6 +1,7 @@
 import React, {useContext,useRef, useState, useEffect} from 'react'
 import { store } from '../store';
 import Modal from './Modal';
+import Tooltip from './Tooltip';
 
 function DownloadFile(props) {
     
@@ -53,9 +54,11 @@ function DownloadFile(props) {
 
     return (
         <div className="div-container">
-     <button onClick={e => modalToggler(e)}>
+    <Tooltip text="Download File">
+        <button onClick={e => modalToggler(e)}>
              <i class="fas fa-file-download"></i>
-    </button>
+        </button>
+    </Tooltip>
     <a style={{"display":"none"}}
          download={fileName+".md"}
          href={fileDownloadUrl}
